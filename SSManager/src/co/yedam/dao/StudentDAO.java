@@ -12,6 +12,66 @@ import co.yedam.vo.StudentVO;
  */
 public class StudentDAO extends DAO{
 	
+	// 삭제기능
+	public boolean deleteStudent(StudentVO svo) {
+		String sql = "delete from tbl_student";
+		sql += "      where std_no = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, svo.getStdNo());
+			
+			int r = psmt.executeUpdate(); // 쿼리 실행
+			if(r==1) {
+				return true; // 정상처리
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	// 단건조회 -- 수정 1 실행
+	public int selectExists(String sno) {
+		String sql = "select count(1) from tbl_student";
+		sql += "      where std_no = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, sno);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	// 수정기능 -- 수정 2 실행
+	public boolean updateStudent(StudentVO svo) {
+		String sql = "update tbl_student ";
+		sql += "      set    std_phone = ?";
+		sql += "            ,address = ?";
+		sql += "      where  std_no = ?";
+		conn = getConn();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, svo.getStdPhone());			
+			psmt.setString(2, svo.getAddress());			
+			psmt.setString(3, svo.getStdNo());
+			
+			int r = psmt.executeUpdate(); // 쿼리 실행
+			if(r==1) {
+				return true; // 정상처리
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false; // 비정상처리
+	} // end of updateStudent
+	
 	// 등록기능
 	public boolean insertStudent(StudentVO svo) {
 		String sql = "insert into tbl_student (std_no, std_name, std_phone, address, birth_date) ";

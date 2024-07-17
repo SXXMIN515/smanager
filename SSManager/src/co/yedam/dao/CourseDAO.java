@@ -1,5 +1,5 @@
 package co.yedam.dao;
 
-public class CourseDAO {
+public class CourseDAO extends DAO {
 
 }
