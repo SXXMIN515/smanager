@@ -2,11 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../includes/header.jsp" %>
-	<h3>게시판 상세(board.jsp)</h3>
+	<h3>삭제(removeForm.jsp)</h3>
 	<%
 		BoardVO board = (BoardVO) request.getAttribute("board");
 	%>
-	<form action="removeBoard.do">
+	<form action="deleteBoard.do">
 	<input type="hidden" name="bno" value="<%=board.getBoardNo() %>">
 	<table class="table">
 		<tr>
@@ -33,10 +33,4 @@
 		</tr>
 	</table>
 	</form>
-	
-	<script>
-		document.querySelector('form>table button.btn.btn-warning').addEventListener('click', function(e) {
-			location.href = 'modifyBoard.do?bno=<%=board.getBoardNo() %>';
-		})
-	</script>
 <%@ include file="../includes/footer.jsp" %>
