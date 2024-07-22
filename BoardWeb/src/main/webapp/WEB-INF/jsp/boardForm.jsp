@@ -2,20 +2,23 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../includes/header.jsp"%>
 <h3>등록화면(boardForm.jsp)</h3>
-<form action="addBoard.do">
+<form action="addBoard.do" method="post" enctype="multipart/form-data">
     <table class="table">
         <tr>
-            <th>죄목</th>
+            <th>제목</th>
             <td><input class="form-control" type="text" name="title"></td>
         </tr>
         <tr>
-            <th>변명</th>
+            <th>내용</th>
             <td><textarea class="form-control" name="content"></textarea></td>
         </tr>
-
         <tr>
-            <th>죄인</th>
-            <td><input class="form-control" type="text" name="writer"></td>
+            <th>작성자</th>
+            <td><input class="form-control" readonly type="text" name="writer" value="${logid }"></td>
+        </tr>
+        <tr>
+            <th>파일</th>
+            <td><input class="form-control" type="file" name="img"></td>
         </tr>
         <tr>
             <td colspan="2" align="center">
