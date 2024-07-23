@@ -37,11 +37,12 @@ public class BoardListControl implements Control{
 		int totalCnt = svc.totalCount(search);
 		PageDTO pageDTO = new PageDTO(Integer.parseInt(page), totalCnt);
 		req.setAttribute("paging", pageDTO);
+		//jsp페이지에서 사용하기 위해서 attribute에 담아서 전달
 		req.setAttribute("searchCondition", sc);
 		req.setAttribute("keyword", kw);
 		
 				
-		req.getRequestDispatcher("WEB-INF/jsp/boardList.jsp").forward(req, resp); // 페이지 재지정
+		req.getRequestDispatcher("board/boardList.tiles").forward(req, resp); // 페이지 재지정
 	}
 
 }
