@@ -20,8 +20,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public List<MemberVO> memberList() {
+	public List<MemberVO> memberList(MemberVO mvo) {
 		// TODO Auto-generated method stub
-		return mapper.memberList();
+		return mapper.memberList(mvo);
 	}
 }

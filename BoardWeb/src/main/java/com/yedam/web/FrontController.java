@@ -25,6 +25,7 @@ import com.yedam.control.StudentListControl;
 import com.yedam.control.UpdateBoard;
 import com.yedam.control.ModifyBoard;
 import com.yedam.control.RemoveBoard;
+import com.yedam.control.ScriptControl;
 
 /*
  * FrontController 역할은 사용자의 모든 요청을 처리.
@@ -64,12 +65,15 @@ public class FrontController extends HttpServlet {
 		
 		// 관리자가 사용하는 기능들..ex)회원목록.
 		map.put("/memberList.do", new MemberListControl());
+		
+		// 자바스크립트 연습하는 페이지 호출.
+		map.put("/javascript.do", new ScriptControl());
 	}
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//boardList.do -목록. addBoard.do -등록.
-		String uri = req.getRequestURI(); // URL(http://localhost/BoardWeb/boardList.do) vs. URI
+		String uri = req.getRequestURI(); // /BoardWeb/boardList.do     URL(http://localhost/BoardWeb/boardList.do) vs. URI
 		String context = req.getContextPath(); // 프로젝트 명.
 		String path = uri.substring(context.length()); // "/boardList.do"
 		
