@@ -11,6 +11,7 @@ public interface StudentMapper {
 	List<StudentVO> studentList();
 	StudentVO selectOne(String sno);
 	int insertStudent(StudentVO svo);
+	int deleteStudent(String stdNo);
 	List<MemberVO> memberList(MemberVO mvo);
 	
 	
