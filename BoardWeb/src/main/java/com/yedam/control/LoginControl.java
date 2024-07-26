@@ -26,7 +26,7 @@ public class LoginControl implements Control {
 		if (mem == null) {
 			// msg를 "아이디와 비번을 확인하세요!";
 			req.setAttribute("msg", "아이디와 비번을 확인하세요!");
-			req.getRequestDispatcher("WEB-INF/jsp/loginForm.jsp").forward(req, resp); // 페이지 재지정
+			req.getRequestDispatcher("board/loginForm.tiles").forward(req, resp); // 페이지 재지정
 			return;
 		}
 		

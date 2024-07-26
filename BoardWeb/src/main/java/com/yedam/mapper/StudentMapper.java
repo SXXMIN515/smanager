@@ -12,7 +12,7 @@ public interface StudentMapper {
 	StudentVO selectOne(String sno);
 	int insertStudent(StudentVO svo);
 	int deleteStudent(String stdNo);
-	List<MemberVO> memberList(MemberVO mvo);
+	List<MemberVO> memberList(@Param("res") String res, @Param("order") String order);
 	
 	
 	// 로그인체크.

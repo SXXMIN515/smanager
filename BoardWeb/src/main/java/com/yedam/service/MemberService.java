@@ -7,7 +7,7 @@ import com.yedam.vo.StudentVO;
 
 public interface MemberService {
 	MemberVO loginCheck(String id, String pw);
-	List<MemberVO> memberList(MemberVO mvo);
+	List<MemberVO> memberList(String res, String order);
 	
 	// 학생목록조회.
 	List<StudentVO> studentList();

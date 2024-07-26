@@ -17,17 +17,13 @@ public class MemberListControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String res = req.getParameter("res");
-		res = res == null ? "1" : res;
+		res = res == null ? "User" : res;
 		
-		String order_by = req.getParameter("order_by");
-		order_by = order_by == null ? "1" : order_by;
-		
-		MemberVO mvo = new MemberVO();
-		mvo.setResponsibility(res);
-		mvo.setMemberNm(order_by);
+		String order = req.getParameter("order");
+		order = order == null ? "member_id" : order;
 		
 		MemberService mvc = new MemberServiceImpl();
-		List<MemberVO> list = mvc.memberList(mvo);
+		List<MemberVO> list = mvc.memberList(res, order);
 		req.setAttribute("memberList", list);
 		 
 		req.getRequestDispatcher("admin/memberList.tiles").forward(req, resp); // 페이지 재지정
