@@ -28,4 +28,8 @@ public class ReplyServiceImpl implements ReplyService{
 		return mapper.deleteReply(replyNo) == 1;
 	}
 	
+	@Override
+	public int replyTotalCnt(int totalReplyCnt) {
+		return mapper.totalReplyCnt(totalReplyCnt);
+	}
 }
