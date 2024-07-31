@@ -42,14 +42,14 @@
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
-							<tiles:insertAttribute name="menu"/>
+				<tiles:insertAttribute name="menu"/>
             </div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
                     		<!-- contents 영역. -->
                     		<tiles:insertAttribute name="body"/>
-												<!-- 요기까지가 contents영역. -->
+							<!-- 요기까지가 contents영역. -->
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
